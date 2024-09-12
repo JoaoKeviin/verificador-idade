@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+
+        background-color: rgb(71, 124, 237);
+
+
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 600px;
+
+
+    }
+
+    h1 {
+        color: white;
+        text-align: center;
+        font-size: 42px;
+    }
+
+    .conteudo {
+        display: flex;
+        background-color: white;
+        width: 30%;
+        height: 300px;
+        border-radius: 21px;
+        box-shadow: 5px 5px 22px rgb(22, 39, 30);
+    }
+
+    .informacao {
+        width: 539px;
+        height: 209px;
+        flex-direction: column-reverse;
+
+    }
+
+    form {
+        width: 60%;
+        margin: 13px;
+    }
+
+    .informacao button {
+        display: flex;
+        width: auto;
+        margin: 14px;
+    }
+
+    .informacao #input_nascimento {
+        width: 50%;
+    }
+
+    section .imagem_texto {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    img {
+   
+        height: 100px;
+    }
+</style>
+
+<body>
+
+    <h1>Verificar Idade</h1>
+
+    <main>
+        <div class="conteudo">
+
+            <section class="informacao">
+                <form action="">
+                    <label for="input_nascimento">Ano de nascimento</label>
+                    <input type="number" name="input_nascimento" id="input_nascimento">
+
+                    <label for="">Sexo</label>
+                    <input type="radio" id="input_masculina" name="input_radio"> <label
+                        for="input_masculina">Masculino</label>
+                    <input type="radio" id="input_feminino" name="input_radio"> <label
+                        for="input_feminino">Feminino</label>
+
+                </form>
+
+                <button onclick="Verificar()">Verificar</button>
+                <div id="" class="imagem_texto">
+                    <div id="div_mensagem"></div>
+                    <img src="" id="img_" alt="">
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+
+
+
+</body>
+
+</html>
+
+
+<script>
+    function Verificar() {
+
+        const anoInformado = document.getElementById("input_nascimento").value;
+        const feminino = document.getElementById("input_feminino").checked;
+        const masculino = document.getElementById("input_masculina").checked;
+        const anoAtual = new Date().getFullYear();
+        const imagem = document.getElementById("img_");
+    
+        console.log(anoInformado);
+        console.log(anoAtual)
+        console.log(imagem)
+      
+
+        const idade = anoAtual - anoInformado;
+
+        console.log(idade)
+
+        if (idade >= 0 && idade <= 18) {
+            if (masculino) {
+                div_mensagem.innerHTML = `Você tem ${idade} anos`
+                imagem.src = "./assets/jvm.jpg"
+            }
+
+            if (feminino) {
+                div_mensagem.innerHTML = `Você tem ${idade} anos`
+                imagem.src = "./assets/jvf.jpg"
+            }
+
+
+        }else if (idade > 18 && idade <= 49) {
+            if (masculino) {
+                div_mensagem.innerHTML = `Você tem ${idade} anos`
+                imagem.src = "./assets/homem.jpg"
+            } else {
+                div_mensagem.innerHTML = `Você tem ${idade} anos`
+                imagem.src = "./assets/mulher.jpg"
+
+            }
+        } else if (idade >= 50 && idade <= 100) {
+            if (masculino) {
+                div_mensagem.innerHTML = `Você tem ${idade} anos`
+                imagem.src = "./assets/velhom.avif"
+            } else {
+                div_mensagem.innerHTML = `Você tem ${idade} anos`
+                imagem.src = "./assets/velhaf.jpg"
+            }
+        } else {
+            alert(`Valor invalido`)
+        }
+    }
+
+
+
+
+
+
+
+
+</script>
